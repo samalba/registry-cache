@@ -16,3 +16,7 @@ varnishd \
     -T 127.0.0.1:2000 \
     -a 0.0.0.0:8080 \
     -F
+
+
+#FIXME: start tinyproxy at the same time
+# tinyproxy -d
