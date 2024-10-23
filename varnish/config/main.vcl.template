@@ -3,38 +3,38 @@ vcl 4.1;
 import directors;
 
 # Define a shared probe for Docker registry backends
-probe docker_probe {
-    .url = "/v2/";
-    .timeout = 5s;
-    .interval = 10s;
-    .window = 5;
-    .threshold = 3;
-}
+#probe docker_probe {
+#    .url = "/v2/";
+#    .timeout = 5s;
+#    .interval = 10s;
+#    .window = 5;
+#    .threshold = 3;
+#}
 
 # Define backends for registry-1.docker.io
 backend docker_registry_backend_1 {
     .host = "54.198.86.24";
     .port = "443";
-    .probe = docker_probe;
+#    .probe = docker_probe;
 }
 
 backend docker_registry_backend_2 {
     .host = "54.236.113.205";
     .port = "443";
-    .probe = docker_probe;
+#    .probe = docker_probe;
 }
 
 backend docker_registry_backend_3 {
     .host = "54.227.20.253";
     .port = "443";
-    .probe = docker_probe;
+#    .probe = docker_probe;
 }
 
 # Define a backend for Tinyproxy
-backend tinyproxy_backend {
-    .host = "127.0.0.1";  # Tinyproxy running locally
-    .port = "8888";       # Port where Tinyproxy is running
-}
+#backend tinyproxy_backend {
+#    .host = "__TINYPROXY_IP__";
+#    .port = "8888";
+#}
 
 # Initialize the round-robin director for Docker registry
 sub vcl_init {
@@ -58,7 +58,7 @@ sub vcl_recv {
     }
 
     # For all other requests, forward to Tinyproxy
-    set req.backend_hint = tinyproxy_backend;
+    #set req.backend_hint = tinyproxy_backend;
     return (pass);
 }
 
