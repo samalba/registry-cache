@@ -1,0 +1,11 @@
+debug = true
+insecure-entitlements = ["security.insecure"]
+
+[registry."docker.io"]
+mirrors = ["registry-cache:8050"]
+http = true
+insecure = true
+
+[registry."registry-cache:8050"]
+http = true
+insecure = true

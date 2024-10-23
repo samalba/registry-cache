@@ -1,0 +1,18 @@
+version: 0.1
+log:
+  accesslog:
+    disabled: true
+  level: warn
+  formatter: text
+
+storage:
+  filesystem:
+    rootdirectory: /var/lib/registry
+
+http:
+  addr: :5000
+  relativeurls: false
+  draintimeout: 60s
+
+proxy:
+  remoteurl: https://registry-1.docker.io

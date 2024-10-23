@@ -1,0 +1,17 @@
+services:
+  registry:
+    container_name: "registry-cache"
+    image: "registry:2"
+    ports:
+      - 8050:8050
+    volumes:
+      - ./config/registry-config.yml:/etc/docker/registry/config.yml
+      - ./storage:/var/lib/registry/
+
+  dagger-engine:
+    container_name: "dagger-engine-proxied"
+    image: "registry.dagger.io/engine:v0.13.5"
+    command: "--debug"
+    privileged: true
+    volumes:
+      - ./config/dagger-engine.toml:/etc/dagger/engine.toml:ro
