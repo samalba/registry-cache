@@ -3,7 +3,7 @@ services:
     container_name: "registry-cache"
     image: "registry:2"
     ports:
-      - 8050:8050
+      - 5000:5000
     volumes:
       - ./config/registry-config.yml:/etc/docker/registry/config.yml
       - ./storage:/var/lib/registry/
