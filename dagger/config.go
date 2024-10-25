@@ -5,11 +5,11 @@ debug = true
 insecure-entitlements = ["security.insecure"]
 
 [registry."docker.io"]
-mirrors = ["registry-mirror-docker.io:5000"]
+mirrors = ["%s"]
 http = true
 insecure = true
 
-[registry."registry-mirror-docker.io:5000"]
+[registry."%s"]
 http = true
 insecure = true
 `
