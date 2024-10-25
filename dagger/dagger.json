@@ -1,5 +1,6 @@
 {
   "name": "registry-cache",
   "sdk": "go",
+  "source": ".",
   "engineVersion": "v0.13.5"
 }

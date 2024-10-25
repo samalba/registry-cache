@@ -81,6 +81,7 @@ func (m *RegistryCache) LoadRegistryImage(ctx context.Context) (string, error) {
 	return parseImageID(out)
 }
 
+// Init the Registry Mirror container
 func (m *RegistryCache) InitRegistryMirror(
 	ctx context.Context,
 	// +optional
@@ -129,6 +130,7 @@ func (m *RegistryCache) InitRegistryMirror(
 	return nil
 }
 
+// Configure a new Dagger Engine container
 func (m *RegistryCache) ConfigureDaggerEngine(
 	ctx context.Context,
 	// +optional
